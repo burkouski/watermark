@@ -54,6 +54,7 @@ gulp.task('scripts', function () {
         'src/js/draggable.js',
         'src/js/reset.js',
         'src/js/sendData.js',
+        'src/js/watermarkRepeat.js',
         'src/js/plugins.js'
     ])
         .pipe(concat('scripts.js'))

@@ -1,8 +1,8 @@
-$(function(){
+$(function () {
     var counterTimeout,
-        // массив для определения пределов
-        // в которых может перемещаться 
-        // вотермарк
+    // массив для определения пределов
+    // в которых может перемещаться
+    // вотермарк
         contSize = [];
 
     // style input
@@ -10,15 +10,15 @@ $(function(){
 
     INPUTFIELD.init();
     PLACEGRID.init();
+    TILE.init()
 
-    
 
     // инициализируем драггабл
     contSize = DRAGGABLE.calculateContainer();
     $('.generator-picture__watermark').draggable({
         containment: contSize
     });
-   
+
     // инициализируем слайдер
     $('.generator-transparency__slider').slider({
         min: 0,
@@ -64,6 +64,8 @@ $(function(){
             // метод модуля грид, он сравнивается сам с моделью
             PLACEGRID.setStyle();
             PLACEGRID.setClass();
+            TILE.changeHorizontalGutter();
+            TILE.changeVerticalGutter();
         }, 50);
 
         $(this).on('mouseup', function () {
@@ -84,6 +86,7 @@ $(function(){
         INPUTFIELD.setInput();
         // грид должен обновиться
         PLACEGRID.setStyle();
+        TILE.showHide($(this));
         // watermark должен перестать двигаться и начать увеличивать марджин
         // ...
     });
@@ -104,14 +107,16 @@ $(function(){
     });
 
     // хендлер для ввода с клавиатуры прямо в инпуты
-    $('.crd-window__num').on('change', function () {
-      // изменяем модель
-      INPUTFIELD.updateModel($(this));
-      // обновляем грид
-      PLACEGRID.setStyle();
-      PLACEGRID.setClass();
-      // обновляем вотермарк
-      DRAGGABLE.setWatermark(true);
+    $('.crd-window__num').on('keyup', function () {
+        // изменяем модель
+        INPUTFIELD.updateModel($(this));
+        // обновляем грид
+        PLACEGRID.setStyle();
+        PLACEGRID.setClass();
+        // обновляем вотермарк
+        DRAGGABLE.setWatermark(true);
+        TILE.changeHorizontalGutter();
+        TILE.changeVerticalGutter();
     });
 
     // хендлер для слайдера
@@ -120,8 +125,9 @@ $(function(){
         SLIDER.updateModel(ui);
         // дергает обновление вотермарка
         DRAGGABLE.setOpacity();
+        TILE.changeOpacity();
     });
-    
+
     // хендлер для окна с возможностью драгабл
     $('.generator-picture__watermark').on('drag', function (e, ui) {
         // изменяет модель
@@ -133,7 +139,7 @@ $(function(){
     });
 
     // сброс
-    $('.button-reset').on('click', function(){
+    $('.button-reset').on('click', function () {
         RESET.resetApp();
         INPUTFIELD.setInput();
         // сбрасывает свитч до моно
