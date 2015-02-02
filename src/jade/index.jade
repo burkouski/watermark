@@ -36,60 +36,79 @@ html(lang="ru")
       div.main-generator
         div.generator-picture
           h1.generator-picture__title Генератор водяных знаков
-          div.generator-picture__result
-
+          div.generator-picture__result.generator-picture__image
+            img(src='dist/img/upload/image.png').generator-picture__img
+            img(src='dist/img/upload/watermark.png').generator-picture__watermark
         div.generator-setup
           h2.generator-setup__title Настройки
-          div.generator-setup__upload
-            form(action="" method="").upload__picture
-              div.upload__main-picture
-                label(for="upload-picture").main-picture__title Исходное изображение
-                input(type="file" placeholder="image.png")#upload-picture.main-picture__file.js-upload
-              div.upload__watermark
-                label(for="upload-watermark").watermark__title Водяной знак
-                input(type="file" placeholder="image.png")#upload-watermark.watermark__file.js-upload
-          div.generator-position
-            div.generator-position__top
-              h3.generator-position__title
-              div.generator-position__switch
-                a(href="").switch__mono mono
-                a(href="").switch__multi multi
-            div.generator-position__bottom
-              div.generator-positio__square
-                div.square_tr
-                  div.square_td
-                  div.square_td
-                  div.square_td
-                div.square_tr
-                  div.square_td
-                  div.square_td
-                  div.square_td
-                div.square_tr
-                  div.square_td
-                  div.square_td
-                  div.square_td
-              div.generator-position__coordinates
-                div.coordinates__x-y.coordinates__x
-                  span.coordinates_name x
-                  div.coordinates__shift 0
-                  div.coordinates__up-down
-                    a(href="").coordinates__x-up
-                    a(href="").coordinates__x-down
-                div.coordinates__x-y.coordinates__x
-                  span.coordinates_name y
-                  div.coordinates__shift 0
-                  div.coordinates__up-down
-                    a(href="").coordinates__y-up
-                    a(href="").coordinates__y-down
-              div.generator-transparency
-                h3.generator-transparency__title Прозрачность
-                div.generator-transparency__slider
-                  span.slider__handle
-              div.generator-buttons
-                button.button-reset Сбросить
-                button.button-download Скачать
+          div.main-generator-upload
+            div.generator-upload
+              form(action="" method="").upload__picture
+                div.upload__main-picture
+                  label(for="upload-picture").main-picture__title Исходное изображение
+                  input(type="file" placeholder="image.png", name="files[]" data-url="/lib/jquery-file-upload/")#upload-picture.main-picture__file.js-upload
+                div.upload__watermark
+                  label(for="upload-watermark").watermark__title Водяной знак
+                  input(type="file" placeholder="image.png", name="files[]" data-url="/lib/jquery-file-upload/")#upload-watermark.watermark__file.js-upload
+          div.main-generator-position
+            div.generator-position
+              div.generator-position__top
+                h3.generator-position__title Положение
+                div.generator-position__switch
+                  div.switch.switch__multi multi
+                  //- a(href="#").switch.switch__multi multi
+                  div.switch.switch__mono.switch--active mono
+                  //- a(href="#").switch.switch__mono.switch--active mono
+              div.generator-position__bottom
+                div.generator-position__main-square
+                  div.generator-position__square
+                    div.square-tr
+                      div.square-td.square-td--active
+                      div.square-td
+                      div.square-td
+                    div.square-tr
+                      div.square-td
+                      div.square-td
+                      div.square-td
+                    div.square-tr
+                      div.square-td
+                      div.square-td
+                      div.square-td
+                  div.multi-line.position-vertical
+                  div.multi-line.position-horizontal
+                div.generator-position__coordinates
+                  div.generator-position-coordinates.clearfix
+                    div.generator-position-coordinates__axis
+                      div.crd-axis.crd-axis--x.crd-axis--letter
+                    div.generator-position-coordinates__window
+                      div.crd-window
+                        input(type="text" name="x-axis" value="0").crd-window__num.crd-window__num--x
+                    div.generator-position-coordinates__arrow-list
+                      div.crd-arrow-list
+                        div.crd-arrow-list__item.crd-arrow-list__item--x.crd-arrow-list__item--up
+                        div.crd-arrow-list__item.crd-arrow-list__item--x.crd-arrow-list__item--down
+                  div.generator-position-coordinates.clearfix
+                    div.generator-position-coordinates__axis
+                      div.crd-axis.crd-axis--y.crd-axis--letter
+                    div.generator-position-coordinates__window
+                      div.crd-window
+                        input(type="text" name="y-axis" value="0").crd-window__num.crd-window__num--y
+                    div.generator-position-coordinates__arrow-list
+                      div.crd-arrow-list
+                        div.crd-arrow-list__item.crd-arrow-list__item--y.crd-arrow-list__item--up
+                        div.crd-arrow-list__item.crd-arrow-list__item--y.crd-arrow-list__item--down
+          div.main-generator-transparency
+            div.generator-transparency
+              h3.generator-transparency__title Прозрачность
+              //- generated by jquery ui slider
+              div.generator-transparency__slider
+          div.main-generator-buttons
+            div.generator-buttons
+              button.button-reset Сброс
+              button.button-download Скачать
 
       footer.main-footer
         div.footer
           p &#169; 2015, Это мой сайт, пожалуйста, не копируйте и не воруйте его
-    script(src="dist/js/scripts.min.js")
+    script(src="dist/js/scripts.js")
+    //- script(src="dist/js/scripts.min.js")
