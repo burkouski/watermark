@@ -3872,6 +3872,8 @@ $(function () {
         // грид должен инзменяться до первоначального значения
         PLACEGRID.setStyle();
         PLACEGRID.setClass();
+        TILE.changeHorizontalGutter();
+        TILE.changeVerticalGutter();
     });
 
     // отправка данных на сервер
