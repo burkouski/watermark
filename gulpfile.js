@@ -39,6 +39,7 @@ gulp.task('sass', function () {
 gulp.task('scripts', function () {
     gulp.src([
         'src/js/jquery-1.11.1.min.js',
+        'src/js/model.js',
         'src/js/jquery.ui.widget.js',
         'src/js/jquery.iframe-transport.js',
         'src/js/jquery.fileupload.js',
@@ -46,10 +47,14 @@ gulp.task('scripts', function () {
         'src/js/socialSharing.js',
         'src/js/counterButtons.js',
         'src/js/placeGrid.js',
+        'src/js/inputField.js',
+        'src/js/slider.js',
+        'src/js/switch.js',
         'src/js/jquery-ui.min.js',
         'src/js/draggable.js',
-        'src/js/plugins.js',
-
+        'src/js/reset.js',
+        'src/js/sendData.js',
+        'src/js/plugins.js'
     ])
         .pipe(concat('scripts.js'))
         .pipe(gulp.dest('dist/js'))

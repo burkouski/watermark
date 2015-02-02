@@ -14,6 +14,7 @@ generator-picture
   width: 651px;
   height: 534px;
   background: $whiteColor;
+  overflow: hidden;
 }
 
 .generator-picture__title {
@@ -23,12 +24,20 @@ generator-picture
 .generator-picture__image {
   position: relative;
   max-height: 534px;
+  line-height: 534px;
 }
 .generator-picture__watermark {
   position: absolute;
   top: 0;
   left: 0;
   display: inline-block;
-  opacity: 0.5;
 }
 
+.generator-picture__watermark, .generator-picture__img {
+  max-width: 651px;
+  max-height: 534px;
+}
+
+.generator-picture__img {
+  vertical-align: middle;
+}
