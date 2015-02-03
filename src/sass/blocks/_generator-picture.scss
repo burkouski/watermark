@@ -9,7 +9,9 @@ generator-picture
   background: $whiteColor;
   background: #fff;
   overflow: hidden;
-  display: inline-block;
+  display: table-cell;
+  vertical-align: middle;
+
   &:before{
     content: '';
     background: url(../img/sprite.png) -401px 0 no-repeat;
@@ -46,7 +48,6 @@ generator-picture
 .generator-picture__image {
   position: relative;
   width: 651px;
-  height: 534px;
 }
 .generator-picture__watermark {
   position: absolute;

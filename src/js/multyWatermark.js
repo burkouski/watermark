@@ -15,7 +15,7 @@ var TILE = (function () {
             image = $('.generator-picture__img'),
             imageWidth = image.width();
             imageHeight = image.height();
-            //console.log(imageWidth)
+            console.log(imageWidth)
             TILE.initTile()
             //itemInRow = Math.floor(imageWidth / watermarkWidth) + 1,
             //rows = Math.floor(imageHeight / watermarkHeight) + 1;
@@ -28,7 +28,7 @@ var TILE = (function () {
             watermarkWidth = watermark.width();
             watermarkHeight = watermark.height();
             watermarkSrc = watermark.attr('src');
-            //console.log(watermarkHeight, watermarkWidth,watermarkSrc );
+            console.log(watermarkHeight, watermarkWidth,watermarkSrc );
             TILE.initTile()
         },
         initTile: function() {

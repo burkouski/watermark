@@ -3218,7 +3218,7 @@ var TILE = (function () {
             image = $('.generator-picture__img'),
             imageWidth = image.width();
             imageHeight = image.height();
-            //console.log(imageWidth)
+            console.log(imageWidth)
             TILE.initTile()
             //itemInRow = Math.floor(imageWidth / watermarkWidth) + 1,
             //rows = Math.floor(imageHeight / watermarkHeight) + 1;
@@ -3231,7 +3231,7 @@ var TILE = (function () {
             watermarkWidth = watermark.width();
             watermarkHeight = watermark.height();
             watermarkSrc = watermark.attr('src');
-            //console.log(watermarkHeight, watermarkWidth,watermarkSrc );
+            console.log(watermarkHeight, watermarkWidth,watermarkSrc );
             TILE.initTile()
         },
         initTile: function() {
@@ -3876,6 +3876,7 @@ var DRAGGABLE = (function () {
           // грид изменяется
           PLACEGRID.setClass();
       });
+
       // хендлер для резайза окна (когда окно изменяется в размере, то
       // пересчитывается контейнер в котором может перемещаться изображение)
       $( window ).on('resize', function () {
@@ -4088,7 +4089,8 @@ var FILESINPT = (function () {
                       });
                       FILESINPT.setModel('image', file.name);
                       FILESINPT.updateInputField('upload-picture');
-                      TILE.initImage()
+                      TILE.initImage();
+
                       itsAlive();
                   });
               } else {

@@ -37,7 +37,8 @@ var FILESINPT = (function () {
                       });
                       FILESINPT.setModel('image', file.name);
                       FILESINPT.updateInputField('upload-picture');
-                      TILE.initImage()
+                      TILE.initImage();
+
                       itsAlive();
                   });
               } else {
